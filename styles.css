@@ -68,6 +68,41 @@ header img.logo {
     left: 20px; /* Keep the logo on the left */
 }
 
+/* For screens that are 768px wide or less */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 10px; /* Increase padding for better spacing */
+    }
+
+    header img.logo {
+        position: static; /* Let the logo follow the normal flow */
+        margin-bottom: 10px; /* Space between logo and title */
+    }
+
+    header h1 {
+        font-size: 2em; /* Slightly smaller font size for mobile */
+        text-align: center;
+        margin-left: 0;
+    }
+
+    header h2 {
+        font-size: 1.2em; /* Adjust slogan font size */
+        text-align: center;
+        margin-left: 0;
+    }
+
+    nav {
+        flex-direction: column; /* Stack navigation links vertically */
+        text-align: center;
+    }
+
+    nav a {
+        padding: 10px;
+    }
+}
 
 
 /* Navigation Styles */
