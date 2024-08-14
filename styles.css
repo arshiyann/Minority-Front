@@ -69,7 +69,7 @@ header img.logo {
 }
 
 /* For screens that are 768px wide or less */
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
     header {
         flex-direction: column;
         justify-content: center;
