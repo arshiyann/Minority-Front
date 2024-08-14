@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Photo Gallery</title>
+    
+    <style>
+        
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border: 5px solid #333; /* Thick border */
+            background-color: #fff;
+            border-radius: 8px; /* Optional: Add rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease; /* Add transition for smooth zoom */
+
+        }
+
+        .gallery-item:hover img{
+            transform: scale(1.1); /* Zoom in effect on hover */
+                }
+
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            background: rgba(15, 15, 15, 0.603);
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            padding: 5px;
+            opacity: 1;
+        }
+
+        .gallery-item:hover .caption {
+            opacity: 1;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+            margin: 0 auto;
+        }
+
+        .lightbox .caption {
+            margin-top: 10px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 2em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="assets/logo2.jpg" alt="logo" class="logo">
+
+        <h1><span class="green">M</span>inority <span class="orange">F</span>ront</h1>
+        <h2>NGO for Minority Rights & Protection</h2>
+    </header>
+    <nav>
+        <a href="main.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="gallery">
+        <!-- Repeat this block for each image -->
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="assets/photo1.jpg" alt="Dr. Feroz Khan Photo 1">
+            <div class="caption">Hon'ble President Express his feelings and 
+                given a Great Smile & Strong Hand Shake to be Clicked after wearing the Afgani Karaqul.</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="assets/photo2.jpg" alt="Dr. Feroz Khan Photo 2">
+            <div class="caption"></div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="assets/photo3.jpg" alt="Dr. Feroz Khan Photo 3">
+            <div class="caption">Dr Feroz Khan All India President Minority Front Gifted A Traditional Afgani Karaquli. 
+                Cap to The ex President of India Ram Nath Kovind at Dr BAMU University Guest House Aurangabad.</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <iframe src="https://www.youtube.com/embed/ksSi4-D6BUM" frameborder="0" allowfullscreen></iframe>
+            <div class="caption">Khalid Ahmed interviewed Dr Feroz Khan on issues related 
+                to the overall development of Aurangabad.</div>
+            </div>
+        
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="assets/photo5.jpg" alt="Dr. Feroz Khan Photo 5">
+            <div class="caption">National Convention For Muslim Reservation at Aurangabad, organized by 
+                Dr Feroz Khan All India President Minority Front.
+                 With Mahmoud Ur Rehman Padmashri &Ex Vice chancellor Aligarh Muslim University.</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="assets/photo10.jpg" alt="Dr. Feroz Khan Photo 10">
+            <div class="caption">Dr. Feroz Khan with Dr. Farooq Abdulla Chief Minister Jammu & Kashmir.</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="assets/photo6.jpg" alt="Dr. Feroz Khan Photo 6">
+            <div class="caption">Caption for Photo 1</div>
+        </div>
+        
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="assets/photo8.jpg" alt="Dr. Feroz Khan Photo 8">
+            <div class="caption">Inaugural Function of Yemen Students Union.</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="assets/photo7.jpg" alt="Dr. Feroz Khan Photo7">
+            <div class="caption">With Manmohan Singh, Prime Minister of India from 2004 to 2014.</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="assets/photo9.jpg" alt="Dr. Feroz Khan Photo 9">
+            <div class="caption">Dharna by Minority Front for Muslim Reservation & 
+                Releasing Innocent Muslim'youth's in Jail.</div>
+        </div>
+        <!-- Add more gallery-item blocks for each photo -->
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged Photo">
+        <div id="lightbox-caption" class="caption"></div>
+    </div>
+
+    <script>
+       function openLightbox(element) {
+    const video = element.querySelector('video');
+    const iframe = element.querySelector('iframe');
+    const img = element.querySelector('img');
+    const caption = element.querySelector('.caption').innerText;
+
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    lightboxCaption.innerText = caption;
+    document.getElementById('lightbox').classList.add('active');
+
+    if (video) {
+        // Display video in lightbox
+        lightboxImg.style.display = 'none';
+        const videoClone = video.cloneNode(true);
+        videoClone.controls = true;
+        lightboxCaption.insertAdjacentElement('beforebegin', videoClone);
+    } else if (iframe) {
+        // Display iframe in lightbox
+        lightboxImg.style.display = 'none';
+        const iframeClone = iframe.cloneNode(true);
+        iframeClone.style.width = '100%';
+        iframeClone.style.height = '100%';
+        lightboxCaption.insertAdjacentElement('beforebegin', iframeClone);
+    } else if (img) {
+        // Display image in lightbox
+        lightboxImg.style.display = 'block';
+        lightboxImg.src = img.src;
+    }
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    const lightbox = document.getElementById('lightbox');
+    const video = lightbox.querySelector('video');
+    const iframe = lightbox.querySelector('iframe');
+    
+    if (video) video.remove();
+    if (iframe) iframe.remove();
+}
+
+    </script>
+</body>
+
+</html>
