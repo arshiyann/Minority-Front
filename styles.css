@@ -116,17 +116,18 @@ header img.logo {
         margin-left: 0;
     }
     nav {
-        display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: left;
+        background-color: #1ec239;
     }
 
     nav a {
-        padding: 12px 0;
         color: #fff;
-        width: 100%;
+        padding: 14px 20px;
+        text-decoration: none;
         text-align: center;
-        border-bottom: 1px solid #1ec239;
+       
     }
     nav a:hover {
     background-color: #555;
