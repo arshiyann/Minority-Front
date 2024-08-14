@@ -116,18 +116,16 @@ header img.logo {
         margin-left: 0;
     }
 
-    nav {
-    display: flex;
-    justify-content: left;
-    background-color: #1ec239;
-}
+     nav {
+        justify-content: center; /* Center the navigation links */
+        flex-wrap: wrap; /* Allow wrapping to fit smaller screens */
+    }
 
-nav a {
-    color: #fff;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: center;
-}
+    nav a {
+        flex: 1 1 auto; /* Make the links flexible */
+        padding: 12px 10px; /* Adjust padding for mobile */
+        min-width: 100px; /* Ensure links don't become too narrow */
+    }
 
 nav a:hover {
     background-color: #555;
