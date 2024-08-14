@@ -117,14 +117,13 @@ header img.logo {
     }
 
      nav {
-        justify-content: center; /* Center the navigation links */
-        flex-wrap: wrap; /* Allow wrapping to fit smaller screens */
+        flex-direction: row; /* Stack navigation links vertically */
+        text-align: center;
     }
 
     nav a {
-        flex: 1 1 auto; /* Make the links flexible */
-        padding: 12px 10px; /* Adjust padding for mobile */
-        min-width: 100px; /* Ensure links don't become too narrow */
+        padding: 10px;
+        color: #fff;
     }
 
 nav a:hover {
