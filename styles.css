@@ -117,13 +117,21 @@ header img.logo {
     }
 
     nav {
-        flex-direction: column; /* Stack navigation links vertically */
-        text-align: center;
-    }
+    display: flex;
+    justify-content: left;
+    background-color: #1ec239;
+}
 
-    nav a {
-        padding: 10px;
-    }
+nav a {
+    color: #fff;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+nav a:hover {
+    background-color: #555;
+}
 }
 
 /* For screens that are 768px wide or less */
