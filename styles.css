@@ -115,7 +115,22 @@ header img.logo {
         text-align: center;
         margin-left: 0;
     }
+    nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 
+    nav a {
+        padding: 12px 0;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #1ec239;
+    }
+    nav a:hover {
+    background-color: #555;
+}
 }
 
 /* For screens that are 768px wide or less */
@@ -145,24 +160,7 @@ header img.logo {
     }
 }
 /* Navigation menu for smaller screens */
-@media (max-width: 768px) {
-    nav {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
 
-    nav a {
-        padding: 12px 0;
-        color: #fff;
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid #1ec239;
-    }
-    nav a:hover {
-    background-color: #555;
-}
-}
 
 /* Navigation Styles */
 nav {
