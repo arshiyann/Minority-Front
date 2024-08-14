@@ -8,6 +8,28 @@ body {
     color: #333;
 }
  
+/* Overall font size adjustments */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Ensure readability on smaller screens */
+        line-height: 1.4;
+    }
+
+    .content {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; /* Even smaller font for very small screens */
+    }
+    
+    .content {
+        padding: 5px;
+    }
+}
 
 .container {
     max-width: 1200px;
@@ -69,7 +91,7 @@ header img.logo {
 }
 
 /* For screens that are 768px wide or less */
-@media (max-width: 1080px) {
+@media (max-width: 768px) {
     header {
         flex-direction: column;
         justify-content: center;
@@ -104,6 +126,47 @@ header img.logo {
     }
 }
 
+/* For screens that are 768px wide or less */
+@media (max-width: 768px) {
+    .photos img {
+        max-width: 48%; /* Adjust image width to fit smaller screens */
+        margin-bottom: 10px;
+    }
+
+    .qualifications h3, .photos h3 {
+        font-size: 1.5em; /* Smaller headings on mobile */
+    }
+}
+
+/* For screens that are 480px wide or less */
+@media (max-width: 480px) {
+    .photos img {
+        max-width: 100%; /* Full-width images on very small screens */
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header h2 {
+        font-size: 1em;
+    }
+}
+/* Navigation menu for smaller screens */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        padding: 12px 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #1ec239;
+    }
+}
 
 /* Navigation Styles */
 nav {
