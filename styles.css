@@ -89,6 +89,14 @@ header img.logo {
     position: absolute; /* Remove from normal flow to center h1 and h2 */
     left: 20px; /* Keep the logo on the left */
 }
+header img.flag {
+    width: 110px;
+    height: 120px;
+    margin-top: -11px;
+    margin-left: 80px;
+    position: absolute; /* Remove from normal flow to center h1 and h2 */
+    right: 20px; /* Keep the logo on the left */
+}
 
 /* For screens that are 768px wide or less */
 @media (max-width: 768px) {
@@ -100,6 +108,10 @@ header img.logo {
     }
 
     header img.logo {
+        position: static; /* Let the logo follow the normal flow */
+        margin-bottom: 10px; /* Space between logo and title */
+    }
+    header img.flag {
         position: static; /* Let the logo follow the normal flow */
         margin-bottom: 10px; /* Space between logo and title */
     }
